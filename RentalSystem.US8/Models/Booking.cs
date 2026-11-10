@@ -13,4 +13,5 @@ public class Booking
     public Guid? ReturnedByEmployeeId { get; set; }
     public Status Status { get; set; }
     public decimal TotalPrice { get; init; }
+    public Equipment? Equipment { get; set; }
 }

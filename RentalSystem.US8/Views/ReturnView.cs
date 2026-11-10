@@ -40,7 +40,16 @@ public class ReturnView(IBookingService bookingService)
         Console.WriteLine($"Startdatum: {booking.StartDate}");
         Console.WriteLine($"Slutdatum: {booking.EndDate}");
 
-        if (booking.Status == Status.CheckedOut)
+        if (booking.Equipment is not null)
+        {
+            Console.WriteLine($"Utrustning: {booking.Equipment.Name}");
+        }
+        else
+        {
+            Console.WriteLine("Utrustningen hittades inte.");
+        }
+
+        if (bookingService.IsOngoing(booking))
         {
             Console.WriteLine("Uthyrningen pågår.");
         }

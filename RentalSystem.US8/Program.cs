@@ -30,8 +30,30 @@ var bookings = new List<Booking>
     }
 };
 
-IBookingRepository bookingRepository = new BookingRepository(bookings);
-IBookingService bookingService = new BookingService(bookingRepository);
-var returnView = new ReturnView(bookingService);
+var equipment = new List<Equipment>
+{
+    new Equipment
+    {
+        Id = bookings[0].EquipmentId,
+        Name = "Slipmaskin",
+        Description = "Slipmaskin för golv",
+        Category = Category.Slipmaskin,
+        Price = 500m
+    },
 
-returnView.Run();
+    new Equipment
+    {
+        Id = bookings[1].EquipmentId,
+        Name = "Dammsugare",
+        Description = "Dammsugare för byggstädning",
+        Category = Category.Dammsugare,
+        Price = 250m
+    }
+};
+
+IBookingRepository bookingRepository = new BookingRepository(bookings);
+IEquipmentRepository equipmentRepository = new EquipmentRepository(equipment);
+
+IBookingService bookingService = new BookingService(bookingRepository, equipmentRepository);
+
+var returnView = new ReturnView(bookingService);

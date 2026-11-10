@@ -5,4 +5,5 @@ namespace RentalSystem.US8.Services;
 public interface IBookingService
 {
     Booking? GetBooking(Guid id);
+    bool IsOngoing(Booking booking);
 }
