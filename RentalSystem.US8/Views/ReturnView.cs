@@ -24,7 +24,7 @@ public class ReturnView(IBookingService bookingService)
 
         if (!Guid.TryParse(orderNumber, out var id))
         {
-            Console.WriteLine("Ordernumret måste vara ett giltigt ordernummer.");
+            Console.WriteLine("Ordernumret måste vara en giltig GUID.");
             return;
         }
 

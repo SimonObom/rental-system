@@ -57,3 +57,5 @@ IEquipmentRepository equipmentRepository = new EquipmentRepository(equipment);
 IBookingService bookingService = new BookingService(bookingRepository, equipmentRepository);
 
 var returnView = new ReturnView(bookingService);
+
+returnView.Run();
